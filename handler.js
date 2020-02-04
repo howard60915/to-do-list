@@ -1,14 +1,28 @@
-'use strict';
+import { ApolloServer } from "apollo-server-lambda";
+import resolvers from "./resolvers";
+import schema from "./schema";
 
-module.exports.hello = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  formatError: error => {
+    console.log(error);
+    return error;
+  },
+  context: ({ event, context }) => ({
+    headers: event.headers,
+    functionName: context.functionName,
+    event,
+    context
+  }),
+  introspection: true,
+  playground: {
+    tracing: true
+  }
+});
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-};
+exports.graphqlHandler = server.createHandler({
+  cors: {
+    origin: "*"
+  }
+});
