@@ -1,6 +1,30 @@
 {
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "陳璟皓 <howard60915@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test-eslint": "./node_modules/.bin/eslint ./",
+    "develop": "serverless offline"
+  },
   "dependencies": {
+    "apollo-server-lambda": "^2.9.16",
     "aws-sdk": "^2.610.0",
-    "graphql": "^14.6.0"
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "prettier": "^1.19.1",
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
   }
 }
