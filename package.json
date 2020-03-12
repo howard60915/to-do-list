@@ -5,7 +5,7 @@
   "author": "陳璟皓 <howard60915@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test-eslint": "./node_modules/.bin/eslint ./",
+    "test-eslint": "./node_modules/.bin/eslint --ext=ts ./",
     "develop": "serverless offline"
   },
   "dependencies": {
@@ -21,14 +21,15 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
     "babel-preset-react-native": "^4.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
