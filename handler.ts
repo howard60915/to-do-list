@@ -1,9 +1,9 @@
-import { ApolloServer } from "apollo-server-lambda";
+import { ApolloServer, gql } from "apollo-server-lambda";
 import resolvers from "./resolvers";
 import schema from "./schema";
 
 const server = new ApolloServer({
-  typeDefs: schema,
+  typeDefs: gql(schema),
   resolvers,
   formatError: error => {
     console.log(error);
@@ -16,9 +16,6 @@ const server = new ApolloServer({
     context
   }),
   introspection: true,
-  playground: {
-    tracing: true
-  }
 });
 
 exports.graphqlHandler = server.createHandler({
